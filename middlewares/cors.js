@@ -1,11 +1,9 @@
 /* eslint-disable linebreak-style */
 const allowedCors = [
-  "http://localhost:3000",
-  "https://localhost:3000",
   "http://localhost:3001",
   "https://localhost:3001",
-  // "http://km.og.nomoredomainsrocks.ru",
-  // "https://km.og.nomoredomainsrocks.ru",
+  "http://jonser.ru",
+  "https://jonser.ru",
 ];
 
 // eslint-disable-next-line consistent-return
