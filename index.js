@@ -13,9 +13,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
 
-app.get("/", (req, res) => {
-  res.send(`<html><body><p>Сервер работает</p></body></html>`);
-});
+// app.get("/", (req, res) => {
+//   res.send(`<html><body><p>Сервер работает</p></body></html>`);
+// });
 app.post("/send-form", (req, res) => {
   const { userName, userTel, comment } = req.body;
 
