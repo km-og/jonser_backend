@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
 const cors = require("./middlewares/cors");
 const { errors } = require("celebrate");
@@ -10,11 +10,11 @@ const PORT = 3001;
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/jonser", {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+// mongoose.connect("mongodb://localhost:27017/jonser", {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false,
+// });
 
 app.use(cors);
 app.use(express.json());
