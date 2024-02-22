@@ -3,8 +3,8 @@ const express = require("express");
 
 const cors = require("./middlewares/cors");
 const { errors } = require("celebrate");
-const mailer = require("./nodemailer");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
+const router = require("./routes/routes");
 
 const PORT = 3001;
 
@@ -21,36 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
 
-// app.get("/", (req, res) => {
-//   res.send(`<html><body><p>Сервер работает</p></body></html>`);
-// });
-
-app.post("/send-form", (req, res) => {
-  const { userName, userTel, category } = req.body;
-
-  if (!userName || !userTel) {
-    return res.sendStatus(400).send({ message: "Что-то пошло не так..." });
-  }
-
-  const mess = {
-    from: "<test_testovich2024@mail.ru>",
-    // to: "mikniy@gmail.com",
-    to: "agromash.msk@gmail.com",
-    subject: "Получена заявка с сайта",
-    text: `Получена заявка с сайта https://jonser.ru/
-    
-    Данные из формы:
-
-    ФИО контактного лица:  ${userName}
-    Контактный телефон: ${userTel}
-    Выбранная категория: ${category}
-    
-    `,
-  };
-  mailer(mess);
-
-  res.send({ message: "Заявка отправлена успешно!" });
-});
+app.use(router);
 
 app.use(errorLogger);
 app.use(errors());
