@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 const { NODE_ENV, JWT_SECRET, DB_HOST, PORT } = process.env;
+console.log(NODE_ENV);
+console.log(NODE_ENV === "production");
 
 const DEV_SECRET = "SECRETSECRETSECRET";
 const DEV_DB_HOST = "mongodb://127.0.0.1:27017/jonser";
