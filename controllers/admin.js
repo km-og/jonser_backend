@@ -70,6 +70,7 @@ const { NODE_ENV, SECRET_STRING } = require("../utils/config");
 //     });
 // };
 const createAdmin = (req, res, next) => {
+  console.log(login);
   const { login, password } = req.body;
   if (!login || login !== "admin") {
     return next(new BadReqErr("Переданы некорректные данные пользователя"));
