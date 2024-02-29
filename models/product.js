@@ -2,18 +2,22 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 
 const productSchema = new mongoose.Schema({
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "admin",
+    required: true,
+  },
   title: {
     type: String,
     required: [true, "Поле 'title' должно быть заполнено"],
     minlength: [2, "Минимальная длина поля 'title' - 2"],
   },
-  description:
-    // [
-    {
+  description: {
+    text: {
       type: String,
       minlength: [2, "Минимальная длина поля 'description' - 2"],
     },
-  // ],
+  },
   // collection: {
   //   //вместо _id
   //   type: String,
@@ -82,7 +86,7 @@ const productSchema = new mongoose.Schema({
     },
     specifications: [
       {
-        param: String,
+        parameter: String,
         value: String,
         id: String,
       },
