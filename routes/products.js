@@ -1,23 +1,24 @@
+const auth = require("../middlewares/auth");
 const productsRouter = require("express").Router();
 const {
-  getProducts,
+  // getProducts,
   createProducts,
-  deleteProducts,
-  updateProductsPrice,
+  // deleteProducts,
+  // updateProductsPrice,
 } = require("../controllers/products");
 const {
   createProductValidation,
-  updateProductValidation,
-  productValidation,
+  // updateProductValidation,
+  // productValidation,
 } = require("../middlewares/validation");
 
-productsRouter.get("/", getProducts);
-productsRouter.post("/", createProductValidation, createProducts);
-productsRouter.patch(
-  "/:productId",
-  updateProductValidation,
-  updateProductsPrice
-);
-productsRouter.delete("/:productId", productValidation, deleteProducts);
+// productsRouter.get("/", getProducts);
+productsRouter.post("/", auth, createProductValidation, createProducts);
+// productsRouter.patch(
+//   "/:productId",
+//   updateProductValidation,
+//   updateProductsPrice
+// );
+// productsRouter.delete("/:productId", productValidation, deleteProducts);
 
 module.exports = productsRouter;

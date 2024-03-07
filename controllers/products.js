@@ -1,9 +1,8 @@
+const mongoose = require("mongoose");
 const Product = require("../models/product");
 
-const getProducts = (req, res) => {
-  const creator = req.user._id;
-  Product.find({ creator })
-    //   // Movie.findById({ owner })
+const getProducts = (req, res, next) => {
+  Product.find({})
     .then((products) => {
       res.send({ data: products });
     })

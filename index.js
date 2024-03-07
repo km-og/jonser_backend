@@ -11,7 +11,7 @@ const cors = require("./middlewares/cors");
 const app = express();
 
 mongoose.connect(DB);
-console.log(DB);
+
 app.use(cors);
 app.use(helmet());
 app.use(express.json());
