@@ -14,7 +14,7 @@ const getGroups = (req, res, next) => {
 
 const createGroup = (req, res, next) => {
   const { title, preview, route, description, order, videoReview } = req.body;
-
+  console.log(req.body);
   Group.create({
     creator: req.user._id,
     title: title,
