@@ -62,7 +62,6 @@ const createGroupValidation = celebrate({
       route: Joi.string().required().min(2),
       description: Joi.string().min(2),
       order: Joi.number().required(),
-      videoReview: Joi.string().pattern(/https*:\/\/[w{3}.]?[\S]+#?\.[\S]+/i),
     })
     .unknown(true),
 });
