@@ -60,7 +60,7 @@ const createGroupValidation = celebrate({
         .required()
         .pattern(/https*:\/\/[w{3}.]?[\S]+#?\.[\S]+/i),
       route: Joi.string().required().min(2),
-      description: Joi.string().min(2),
+      description: Joi.string(),
       order: Joi.number().required(),
     })
     .unknown(true),
