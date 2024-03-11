@@ -27,7 +27,7 @@ const groupSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    minlength: [2, "Минимальная длина поля 'description' - 2"],
+    // minlength: [2, "Минимальная длина поля 'description' - 2"],
   },
   order: {
     type: Number,
