@@ -35,10 +35,10 @@ const groupSchema = new mongoose.Schema({
   },
   videoReview: {
     type: String,
-    validate: {
-      validator: (v) => validator.isURL(v),
-      message: "Некорректный URL",
-    },
+    // validate: {
+    //   validator: (v) => validator.isURL(v),
+    //   message: "Некорректный URL",
+    // },
   },
 });
 
