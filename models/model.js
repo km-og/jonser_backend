@@ -24,10 +24,10 @@ const modelSchema = new mongoose.Schema({
     type: String,
     required: [true, "Поле 'premium' должно быть заполнено"],
   },
-  isHorizontal: {
-    type: String,
-    required: [true, "Поле 'premium' должно быть заполнено"],
-  },
+  // isHorizontal: {
+  //   type: String,
+  //   required: [true, "Поле 'premium' должно быть заполнено"],
+  // },
   nameModel: {
     type: String,
     required: [true, "Поле 'nameModel' должно быть заполнено"],

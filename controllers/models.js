@@ -33,14 +33,15 @@ const createModel = (req, res, next) => {
     newPrice,
     oldPrice,
   } = req.body;
-
+  console.log(req.body);
+  console.log(req.user._id);
   Model.create({
     creator: req.user._id,
     title: title,
     description: description,
     subtitle: subtitle,
     premium: premium,
-    isHorizontal: isHorizontal,
+    // isHorizontal: isHorizontal,
     nameModel: nameModel,
     nameProduct: nameProduct,
     preview: preview,
