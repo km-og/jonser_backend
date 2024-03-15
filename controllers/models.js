@@ -20,7 +20,7 @@ const createModel = (req, res, next) => {
     description,
     subtitle,
     premium,
-    isHorizontal,
+    // isHorizontal,
     nameModel,
     nameProduct,
     preview,
