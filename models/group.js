@@ -27,7 +27,6 @@ const groupSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    // minlength: [2, "Минимальная длина поля 'description' - 2"],
   },
   order: {
     type: Number,
@@ -35,10 +34,6 @@ const groupSchema = new mongoose.Schema({
   },
   videoReview: {
     type: String,
-    // validate: {
-    //   validator: (v) => validator.isURL(v),
-    //   message: "Некорректный URL",
-    // },
   },
 });
 

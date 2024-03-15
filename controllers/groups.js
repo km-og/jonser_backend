@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Group = require("../models/group");
 const BadReqErr = require("../errors/BadReqErr");
+const ForbiddenErr = require("../errors/ForbiddenErr");
+const NotFoundErr = require("../errors/NotFoundErr");
 
 const getGroups = (req, res, next) => {
   Group.find({})
@@ -38,15 +40,15 @@ const createGroup = (req, res, next) => {
     });
 };
 
-const deleteGroups = (req, res, next) => {
+const deleteGroup = (req, res, next) => {
   Group.findById(req.params.groupId)
     .orFail()
     .then((group) => {
       if (req.user._id === group.creator.toString()) {
         group
           .deleteOne()
-          .then((delgroup) => {
-            res.send({ data: delgroup });
+          .then((delGroup) => {
+            res.send({ data: delGroup });
           })
           .catch((err) => {
             next(err);
@@ -65,33 +67,8 @@ const deleteGroups = (req, res, next) => {
     });
 };
 
-// const updateGroupsPrice = (req, res, next) => {
-//   const { name, price } = req.body;
-//   Group.findByIdAndUpdate(
-//     req.params.groupId,
-//     { name, price },
-//     {
-//       new: true,
-//       runValidators: true,
-//     }
-//   )
-//     .orFail()
-//     .then((group) => {
-//       res.send({ data: group });
-//     })
-//     .catch((err) => {
-//       if (err instanceof mongoose.Error.ValidationError) {
-//         next(new BadReqErr("Переданы некорректные данные"));
-//         return;
-//       } else {
-//         next(err);
-//       }
-//     });
-// };
-
 module.exports = {
   getGroups,
   createGroup,
-  deleteGroups,
-  // updateGroupsPrice,
+  deleteGroup,
 };

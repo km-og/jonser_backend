@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { sendForm } = require("../controllers/form");
 const NotFoundErr = require("../errors/NotFoundErr");
 const { loginAdmin, createAdmin } = require("../controllers/admin");
-const productsRouter = require("./products");
+const modelsRouter = require("./models.js");
 const {
   signupValidation,
   signinValidation,
@@ -13,8 +13,7 @@ router.post("/signup", signupValidation, createAdmin);
 router.post("/signin", signinValidation, loginAdmin);
 router.post("/send-form", sendForm);
 
-// router.use("/products", productsRouter);
-router.use("/products", productsRouter);
+router.use("/models", modelsRouter);
 router.use("/groups", groupsRouter);
 
 router.use("*", (req, res, next) => {

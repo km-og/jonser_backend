@@ -14,42 +14,39 @@ const signupValidation = celebrate({
   }),
 });
 
-const updateProductValidation = celebrate({
+const createModelValidation = celebrate({
   body: Joi.object()
     .keys({
       title: Joi.string().required().min(2),
-      description: Joi.string().required().min(2),
       subtitle: Joi.string().required().min(2),
-      premium: Joi.boolean().required(),
+      premium: Joi.string().required(),
       nameModel: Joi.string().required().min(2),
       nameProduct: Joi.string().required().min(2),
       preview: Joi.string()
         .required()
         .pattern(/https*:\/\/[w{3}.]?[\S]+#?\.[\S]+/i),
+      newPrice: Joi.number().required(),
+      oldPrice: Joi.number().required(),
     })
     .unknown(true),
 });
 
-const createProductValidation = celebrate({
-  body: Joi.object()
-    .keys({
-      title: Joi.string().required().min(2),
-      description: Joi.string().required().min(2),
-      subtitle: Joi.string().required().min(2),
-      premium: Joi.boolean().required(),
-      nameModel: Joi.string().required().min(2),
-      nameProduct: Joi.string().required().min(2),
-      preview: Joi.string()
-        .required()
-        .pattern(/https*:\/\/[w{3}.]?[\S]+#?\.[\S]+/i),
-    })
-    .unknown(true),
-});
-
-const productValidation = celebrate({
+const modelValidation = celebrate({
   params: Joi.object().keys({
-    productId: Joi.string().hex().required(),
+    modelId: Joi.string().hex().required(),
   }),
+});
+
+const updateModelValidation = celebrate({
+  params: Joi.object().keys({
+    groupId: Joi.string().hex().required(),
+  }),
+  body: Joi.object()
+    .keys({
+      newPrice: Joi.number().required(),
+      oldPrice: Joi.number().required(),
+    })
+    .unknown(true),
 });
 
 const createGroupValidation = celebrate({
@@ -74,10 +71,9 @@ const groupValidation = celebrate({
 module.exports = {
   signinValidation,
   signupValidation,
-  createProductValidation,
-  productValidation,
-  updateProductValidation,
+  createModelValidation,
+  modelValidation,
+  updateModelValidation,
   createGroupValidation,
   groupValidation,
-  // getUserByIdValidation,
 };

@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 class ForbiddenErr extends Error {
   constructor(mess) {
     super(mess);

@@ -4,18 +4,15 @@ const groupsRouter = require("express").Router();
 const {
   getGroups,
   createGroup,
-  deleteGroups,
-  // updateGroupsPrice,
+  deleteGroup,
 } = require("../controllers/groups");
 const {
   createGroupValidation,
   groupValidation,
-  // updateGroupsValidation,
 } = require("../middlewares/validation");
 
 groupsRouter.get("/", getGroups);
 groupsRouter.post("/", auth, createGroupValidation, createGroup);
-// groupsRouter.patch("/:groupId", updateGroupsValidation, updateGroupsPrice);
-groupsRouter.delete("/:groupId", auth, groupValidation, deleteGroups);
+groupsRouter.delete("/:groupId", auth, groupValidation, deleteGroup);
 
 module.exports = groupsRouter;

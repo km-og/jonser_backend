@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 const allowedCors = [
   "http://localhost:3000",
   "https://localhost:3000",
@@ -8,7 +7,6 @@ const allowedCors = [
   "https://jonser.ru",
 ];
 
-// eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
